@@ -1,0 +1,12 @@
+{
+  "name": "trackwise-super-app",
+  "private": true,
+  "scripts": {
+    "server": "cd backend && npm run server",
+    "client": "cd frontend && npm run dev",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
