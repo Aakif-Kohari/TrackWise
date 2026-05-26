@@ -1,0 +1,10 @@
+import express from 'express';
+import authMiddleware from '../middleware/auth.js';
+import { createHabit, getHabits, removeHabit, toggleHabit } from '../controllers/habitController.js';
+const router = express.Router();
+router.use(authMiddleware);
+router.get('/', getHabits);
+router.post('/', createHabit);
+router.patch('/:id/toggle', toggleHabit);
+router.delete('/:id', removeHabit);
+export default router;

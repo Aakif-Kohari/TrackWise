@@ -1,0 +1,10 @@
+import express from 'express';
+import authMiddleware from '../middleware/auth.js';
+import { addStudyTopic, getStudyItems, removeStudyTopic, updateStudyHours } from '../controllers/studyController.js';
+const router = express.Router();
+router.use(authMiddleware);
+router.get('/', getStudyItems);
+router.post('/', addStudyTopic);
+router.patch('/:id', updateStudyHours);
+router.delete('/:id', removeStudyTopic);
+export default router;
