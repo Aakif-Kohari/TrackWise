@@ -1,0 +1,11 @@
+import express from 'express';
+import authMiddleware from '../middleware/auth.js';
+import { addExpense, addIncome, deleteExpense, deleteIncome, getSummary } from '../controllers/wealthController.js';
+const router = express.Router();
+router.use(authMiddleware);
+router.get('/summary', getSummary);
+router.post('/income', addIncome);
+router.post('/expense', addExpense);
+router.delete('/expense/:id', deleteExpense);
+router.delete('/income/:id', deleteIncome);
+export default router;
