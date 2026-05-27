@@ -9,7 +9,7 @@ import wealthRoutes from './routes/wealthRoutes.js';
 import studyRoutes from './routes/studyRoutes.js';
 import habitRoutes from './routes/habitRoutes.js';
 
-dotenv.config();
+dotenv.config({ path: '../.env' });
 const app = express();
 app.use(helmet());
 app.use(cors());

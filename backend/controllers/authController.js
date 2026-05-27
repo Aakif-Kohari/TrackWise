@@ -1,10 +1,10 @@
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 import prisma from '../db/client.js';
 import asyncHandler from 'express-async-handler';
 
-dotenv.config();
+dotenv.config({ path: '../.env' });
 
 const signToken = (user) => {
   return jwt.sign(

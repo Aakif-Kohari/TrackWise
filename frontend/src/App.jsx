@@ -5,7 +5,6 @@ import WealthTracker from './components/WealthTracker.jsx';
 import LearningDashboard from './components/LearningDashboard.jsx';
 import RoutineLog from './components/RoutineLog.jsx';
 import api from './services/api.js';
-import { BarChart, Bar, XAxis, Tooltip, ResponsiveContainer } from 'recharts';
 
 function AppContent() {
   const { user, logout, login, register, loading, error } = useAuth();
@@ -90,21 +89,6 @@ function AppContent() {
 
             {mode === 'dashboard' && (
               <div className="grid gap-6">
-                <div className="rounded-3xl bg-slate-900/80 border border-white/10 p-6 shadow-glass">
-                  <h3 className="text-lg font-semibold">Cashflow Overview</h3>
-                  <p className="mt-2 text-slate-400">Total Income vs Total Expense.</p>
-                  <div className="mt-4 h-48 w-full">
-                    <ResponsiveContainer width="100%" height="100%">
-                      <BarChart data={[{ name: 'Overall', Income: summary.totalIncome, Expense: summary.totalExpense }]}>
-                        <XAxis dataKey="name" stroke="#94a3b8" tick={{fontSize: 12}} />
-                        <Tooltip cursor={{fill: 'transparent'}} contentStyle={{ backgroundColor: '#020617', borderColor: '#1e293b', borderRadius: '1rem', color: '#f8fafc' }} />
-                        <Bar dataKey="Income" fill="#34d399" radius={[4, 4, 0, 0]} maxBarSize={60} />
-                        <Bar dataKey="Expense" fill="#fb7185" radius={[4, 4, 0, 0]} maxBarSize={60} />
-                      </BarChart>
-                    </ResponsiveContainer>
-                  </div>
-                </div>
-
                 <div className="grid gap-4 md:grid-cols-2">
                   <div className="rounded-3xl bg-slate-900/80 border border-white/10 p-6 shadow-glass">
                     <h3 className="text-lg font-semibold">Study Flow Progress</h3>

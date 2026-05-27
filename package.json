@@ -2,11 +2,18 @@
   "name": "trackwise-super-app",
   "private": true,
   "scripts": {
+    "setup": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "db:push": "npx prisma db push",
+    "db:seed": "cd backend && node seed.js",
     "server": "cd backend && npm run server",
     "client": "cd frontend && npm run dev",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "devDependencies": {
-    "concurrently": "^8.2.2"
+    "concurrently": "^8.2.2",
+    "prisma": "^6.19.3"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.19.3"
   }
 }
